@@ -15,10 +15,10 @@ node('php'){
     }
     
     stage('Docker Build') {
-        sh 'docker build -t rodrigocorreiasousa/centosteste:$BUILD_NUMBER .'
+        sh 'docker build -t rodrigocorreiasousa/apitodo:$BUILD_NUMBER .'
     }
     
     stage('Docker Ship') {
-        sh 'docker push rodrigocorreiasousa/centosteste:$BUILD_NUMBER'
+        sh 'docker push rodrigocorreiasousa/apitodo:$BUILD_NUMBER'
     }
 }

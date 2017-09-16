@@ -14,6 +14,17 @@ node('php'){
         // sh 'php artisan route:cache'
     }
     
+    stage('config'){
+        parallel(
+            'config cache': {
+          sh 'php artisan config:cache'
+        // sh 'php artisan route:cache'
+    }
+            'config route': {
+                sh 'php artisan'
+            }
+            
+    
     stage('Docker Build') {
         sh 'docker build -t rodrigocorreiasousa/apitodo:$BUILD_NUMBER .'
     }
